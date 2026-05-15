@@ -11,7 +11,10 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: radial-gradient(circle at 0% 0%, #e8f6eb 0, transparent 35%), var(--color-bg);
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in oklab, var(--color-primary) 15%, transparent) 0, transparent 35%),
+    radial-gradient(circle at 100% 10%, color-mix(in oklab, var(--color-accent) 14%, transparent) 0, transparent 38%),
+    var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   text-rendering: optimizeLegibility;
@@ -35,12 +38,13 @@ h1,
 h2,
 h3 {
   margin: 0;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   line-height: 1.15;
 }
 
 h1 {
   font-size: var(--type-2xl);
+  max-width: 16ch;
 }
 
 h2 {

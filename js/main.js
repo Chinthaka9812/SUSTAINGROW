@@ -1,7 +1,5 @@
 const menuToggle = document.getElementById("menuToggle");
 const menu = document.getElementById("mainMenu");
-const themeToggle = document.getElementById("themeToggle");
-const root = document.documentElement;
 const yearEl = document.getElementById("year");
 const form = document.getElementById("contactForm");
 const formFeedback = document.getElementById("formFeedback");
@@ -9,22 +7,6 @@ const submitBtn = document.getElementById("submitBtn");
 const skeleton = document.getElementById("insightsSkeleton");
 const insights = document.getElementById("insightsContent");
 const emptyState = document.getElementById("insightsEmpty");
-
-const THEME_KEY = "sustaingrow-theme";
-
-function setTheme(theme) {
-  root.setAttribute("data-theme", theme);
-  if (themeToggle) {
-    themeToggle.firstElementChild.textContent = theme === "dark" ? "Dark" : "Light";
-  }
-}
-
-function initTheme() {
-  const stored = localStorage.getItem(THEME_KEY);
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const initial = stored || (prefersDark ? "dark" : "light");
-  setTheme(initial);
-}
 
 function validateField(field) {
   const value = field.value.trim();
@@ -72,14 +54,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem(THEME_KEY, next);
-  });
-}
 
 if (yearEl) {
   yearEl.textContent = String(new Date().getFullYear());
@@ -146,5 +120,3 @@ window.setTimeout(() => {
     emptyState.classList.remove("hidden");
   }
 }, 900);
-
-initTheme();
