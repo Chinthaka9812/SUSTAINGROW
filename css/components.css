@@ -123,7 +123,8 @@
 .feature-card,
 .insight-card,
 .contact-card,
-.contact-form {
+.contact-form,
+.image-card {
   background: color-mix(in oklab, var(--color-surface) 96%, transparent);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -140,6 +141,21 @@
 .hero-card h2 {
   font-size: var(--type-lg);
   margin-bottom: var(--space-md);
+}
+
+.hero-visual {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--color-border) 70%, transparent);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.hero-visual img {
+  width: 100%;
+  min-height: 300px;
+  max-height: 420px;
+  object-fit: cover;
 }
 
 .hero-card ul {
@@ -173,7 +189,8 @@
 .stat-card,
 .risk-card,
 .feature-card,
-.insight-card {
+.insight-card,
+.image-card {
   padding: var(--space-md);
 }
 
@@ -199,13 +216,42 @@
   background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 }
 
+.image-card {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.image-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--transition-med), filter var(--transition-med);
+  filter: saturate(1.03);
+}
+
+.image-card figcaption {
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--type-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  background: color-mix(in oklab, var(--color-surface) 90%, transparent);
+}
+
 .feature-card:hover,
 .risk-card:hover,
 .insight-card:hover,
-.stat-card:hover {
+.stat-card:hover,
+.image-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.image-card:hover img {
+  transform: scale(1.04);
+  filter: saturate(1.1);
 }
 
 .table-wrap {

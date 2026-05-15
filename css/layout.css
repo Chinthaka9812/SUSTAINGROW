@@ -69,6 +69,11 @@
   align-items: start;
 }
 
+.hero-media {
+  display: grid;
+  gap: var(--space-md);
+}
+
 .hero-proof {
   margin-top: var(--space-lg);
   display: flex;
@@ -90,7 +95,8 @@
 
 .risk-grid,
 .feature-grid,
-.insights-grid {
+.insights-grid,
+.gallery-grid {
   margin-top: var(--space-lg);
   display: grid;
   gap: var(--space-md);
@@ -128,7 +134,8 @@
   .risk-grid,
   .feature-grid,
   .insights-grid,
-  .stat-grid {
+  .stat-grid,
+  .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -171,7 +178,8 @@
   .risk-grid,
   .feature-grid,
   .insights-grid,
-  .stat-grid {
+  .stat-grid,
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 }
