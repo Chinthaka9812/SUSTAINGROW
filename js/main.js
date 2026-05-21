@@ -80,29 +80,23 @@ if (form && submitBtn) {
     submitBtn.textContent = "Sending...";
 
     try {
-      const [name, email, company, message] = fields.map((field) => field.value.trim());
-      const subject = encodeURIComponent("New Inspection Request - SUSTAINGROW Website");
-      const body = encodeURIComponent(
-        [
-          `Name: ${name}`,
-          `Email: ${email}`,
-          `Company: ${company}`,
-          "",
-          "Inspection Requirement:",
-          message
-        ].join("\n")
-      );
-      const mailtoLink = `mailto:info@sustaingrowsl.com?subject=${subject}&body=${body}`;
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json"
+        }
+      });
 
-      // Short delay keeps feedback state visible and avoids abrupt UI jump.
-      await new Promise((resolve) => window.setTimeout(resolve, 350));
-      window.location.href = mailtoLink;
+      if (!response.ok) {
+        throw new Error("Formspree submission failed");
+      }
 
       form.reset();
       fields.forEach((field) => field.setAttribute("aria-invalid", "false"));
-      setFeedback("success", "Draft opened in your email app. Please send to complete the request.");
+      setFeedback("success", "Request sent successfully. We will contact you within 24 hours.");
     } catch (_error) {
-      setFeedback("error", "Unable to submit right now. Please email info@sustaingrowsl.com.");
+      setFeedback("error", "Unable to send right now. Please email info@sustaingrowsl.com directly.");
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = "Send Request";

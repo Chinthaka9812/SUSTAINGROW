@@ -300,8 +300,19 @@
             </p>
           </article>
 
-          <form class="contact-form" id="contactForm" novalidate>
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/xykvwzwj"
+            method="POST"
+            novalidate
+          >
             <h3>Inspection Request</h3>
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Inspection Request - SUSTAINGROW Website"
+            />
             <label for="name">Full Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required />
 
