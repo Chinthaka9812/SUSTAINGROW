@@ -367,6 +367,90 @@ blockquote {
   margin-top: var(--space-sm);
 }
 
+.contact-methods {
+  margin: var(--space-md) 0;
+}
+
+.contact-method {
+  margin-top: var(--space-md);
+}
+
+.contact-label {
+  font-size: var(--type-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.contact-links {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: color-mix(in oklab, var(--color-surface-muted) 70%, transparent);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: var(--type-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.contact-link:hover {
+  border-color: var(--color-primary);
+  background: color-mix(in oklab, var(--color-primary) 12%, var(--color-surface));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-link svg {
+  flex-shrink: 0;
+}
+
+.phone-link {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-primary) 8%, var(--color-surface)),
+    color-mix(in oklab, var(--color-primary) 5%, var(--color-surface))
+  );
+  border-color: color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+}
+
+.phone-link:hover {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-primary) 15%, var(--color-surface)),
+    color-mix(in oklab, var(--color-primary) 10%, var(--color-surface))
+  );
+}
+
+.whatsapp-link {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-accent) 8%, var(--color-surface)),
+    color-mix(in oklab, var(--color-accent) 5%, var(--color-surface))
+  );
+  border-color: color-mix(in oklab, var(--color-accent) 30%, var(--color-border));
+  color: var(--color-accent);
+}
+
+.whatsapp-link:hover {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-accent) 15%, var(--color-surface)),
+    color-mix(in oklab, var(--color-accent) 10%, var(--color-surface))
+  );
+  border-color: var(--color-accent);
+}
+
 .closing-line {
   margin-top: var(--space-lg);
   color: var(--color-accent);
