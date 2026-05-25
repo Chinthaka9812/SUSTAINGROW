@@ -411,8 +411,10 @@ blockquote {
   box-shadow: var(--shadow-sm);
 }
 
-.contact-link svg {
+.contact-link i {
+  font-size: 1.1em;
   flex-shrink: 0;
+  display: inline-block;
 }
 
 .phone-link {
